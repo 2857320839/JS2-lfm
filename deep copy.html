@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>level3</title>
+    <script>
+        function deepClone(obj){
+        var objClone = Array.isArray ? [] : {};
+        if (obj && typeof obj ==="object"){
+            for(key in obj){
+                if(obj.hasOwnProperty(key)){
+                    if(obj[key] && typeof obj[key] === "object")
+                    {
+                        objClone[key] = deepClone(obj[key]);
+                    }
+                    else{
+                        objClone[key] = obj[key];
+                    }
+                }
+            }
+        }
+        return objClone;
+    }
+        var data = {
+            age: 18,
+            name: "这是真的难",
+            education: ["小学", "初中", "高中", "大学", undefined, null],
+            friends: [
+                {name: "Amber",sex: "woman"},
+                {name: "Babara",sex: "woman"},
+                {name:"Venti", sex: "man"}
+            ],
+            work: {
+                time:"2021",
+                project:{name:"test",obtain:["css", "html", "js"]}
+            },
+        play: function(){
+            console.log("玩滑板");
+
+        }
+    }
+    m = deepClone(data);
+    data.age = 20;
+    console.log(m);
+    console.log(data);
+    
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

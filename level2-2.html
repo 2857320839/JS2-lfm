@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>level2-2</title>
+    <script>
+        function course(){
+            this.coursename = "CSA前端培训";
+            this.semester = 2;
+        }
+        function student(name, age, gender){
+            this.name = name;
+            this.age = age;
+            this.gender = gender;
+            this.moreinfo = function()
+            {
+                var detail = function()
+                {
+                    console.log(student1['gender']);
+                }
+                detail();
+            }
+            course.call(this,"CSA前端培训",2);
+        }
+        var student1 = new student("小明",18,"男");
+        console.log(student1.coursename,student1.semester);
+        student1.moreinfo();
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
